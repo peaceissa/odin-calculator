@@ -1,37 +1,86 @@
-let value1 = 0;
-let value2 = 0;
+let value1 = [];
+let value2 = [];
 let operator = '';
 
+// basic arithmetic functions
 function add(num1,num2){
     return num1 + num2;
 }
-console.log(add(num1,num2));
 function subtract(){
     return num1 - num2;
 }
-console.log(subtract(num1, num2));
 function multiply(){
     return num1 * num2;
 }
 function divide(){
     return num1 / num2;
 }
+function percent(num1,num2){
+    return (num1 / num2) *100;
+}
 
-function operate(value1, operator, value2){
+// function to call the arithmetic functions
+function operate(val1, operator, val2){
     if (operator === "+"){
-        add(value1, value2);
+        add(val1, val2);
     }
     else if (operator === "-"){
-        subtract(value1,value2);
+        subtract(val1,val2);
     }
     else if (operator === "*"){
-        multiply(value1, value2);
+        multiply(val1, val2);
     }
     else if (operator === "/"){
-        divide(value1,value2);
+        divide(val1,val2);
+    }
+    else if (operator === "%"){
+        percent(val1, val2)
     }
     else {
         return "Error!";
     }
 
 }
+
+// function to turn on the calculator
+let start = document.getElementById('start-btn');
+let display = document.getElementById('output');
+start.addEventListener('click',function(){
+     display.style.backgroundColor = 'white';
+    });
+
+// function to stop operator
+let oper = document.getElementsByClassName('oper');
+for (let i = 0; i < oper.length; i++){
+    oper[i].addEventListener('click',function(){
+        operator = oper[i].value;
+});
+}
+
+// function to store numerals
+let btn = document.getElementsByClassName('num');
+for (let i = 0; i < btn.length;i++){
+    btn[i].addEventListener('click',function(){
+        if (operator != ''){
+            value1 = btn[i].value;
+            display.textContent += btn[i].value;
+        } 
+        else{
+        value2 = btn[i].value;
+        display.textContent += btn[i].value;
+        }
+    });
+}
+
+// let del = getElementById('del');
+// del.addEventListner('onclick',function(){
+
+// });
+let clear = document.getElementById('clear');
+clear.addEventListener('click', clr('output'));
+function clr(elementId){
+    let div = document.getElementById(elementId);
+    div.textContent = ' ';
+}
+let equals = document.getElementById('result');
+equals.addEventListener('click',operate(value1, operator,value2));
