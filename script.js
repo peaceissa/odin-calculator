@@ -1,5 +1,5 @@
-let value1 = '';
-let value2 = '';
+let value1 = [];
+let value2 = [];
 let operator = '';
 
 // basic arithmetic functions
@@ -49,33 +49,24 @@ start.addEventListener('click',function(){
      display.style.backgroundColor = 'white';
     });
 
-// function to stop operator
-let oper = document.getElementsByClassName('oper');
-for (let i = 0; i < oper.length; i++){
-    oper[i].addEventListener('click',function(){
-        operator = oper[i].value;
-        console.log(operator);
-        display.textContent += oper[i].value; 
-});
-}
 
-// function to store numerals
-// const btns = document.getElementsByClassName('.num');
-const btns = document.querySelectorAll('num');
-for (let i = 0; i < btns.length; i++) {
-  btns[i].addEventListener('click', function(){
-    value1 = btns[i].value;
-    display.textContent = btns[i].value;
-  });
-}
-// let del = getElementById('del');
+// // let del = getElementById('del');
 // del.addEventListner('onclick',function(){
 
+    let outputdiv = document.getElementById('output'); 
+    let currentContent = outputdiv.textContent; 
+    let newContent = currentContent.slice(0, -1); 
+    outputdiv.textContent = newContent; 
+
 // });
+
+// function to clear contents
 let clear = document.getElementById('clear');
 clear.addEventListener('click', function(){
     display.textContent = '';
 });
+
+// function to call operate function
 let equals = document.getElementById('result');
 equals.addEventListener('click',function(){
     display.textContent = operate(value1, operator,value2)
