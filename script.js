@@ -59,10 +59,10 @@ start.addEventListener('click',function(){
     numbers[i].addEventListener('click', function(){
         if (operator === " "){
             value1 += numbers[i].textContent;
-            console.log(value1);
+            // console.log(value1);
         }else{
             value2 += numbers[i].textContent;
-            console.log(value2);
+            // console.log(value2);
         }
         display.textContent += numbers[i].textContent;
     });
