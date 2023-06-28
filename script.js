@@ -3,7 +3,7 @@ let value2 = [];
 let operator = " ";
 
 // basic arithmetic functions
-function add(num1,num2){
+function add(number(num1), number(num2)){
     return num1 + num2;
 }
 function subtract(num1,num2){
@@ -16,7 +16,7 @@ function divide(num1,num2){
     return num1 / num2;
 }
 function percent(num1,num2){
-    return (num1 / num2) *100;
+    return `${(num1 / num2) *100}%`;
 }
 
 // function to call the arithmetic functions
