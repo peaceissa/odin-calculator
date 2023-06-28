@@ -1,6 +1,6 @@
 let value1 = [];
 let value2 = [];
-let operator = '';
+let operator = " ";
 
 // basic arithmetic functions
 function add(num1,num2){
@@ -49,16 +49,27 @@ start.addEventListener('click',function(){
      display.style.backgroundColor = 'white';
     });
 
-
-// // let del = getElementById('del');
-// del.addEventListner('onclick',function(){
-
+//function to store numerical input from the user
+ let numbers = document.getElementsByClassName('num');
+ for(let i = 0; i < numbers.length; i++){
+    numbers[i].addEventListener('click', function(){
+        if (operator === " "){
+            value1 += numbers[i].textContent;
+        }else{
+            value2 += numbers[i].textContent;
+        }
+        display.textContent += numbers[i].textContent;
+    });
+ }
+// function to delete a single element
+let del = document.getElementById('del');
+del.addEventListener('click',function(){
     let outputdiv = document.getElementById('output'); 
     let currentContent = outputdiv.textContent; 
     let newContent = currentContent.slice(0, -1); 
     outputdiv.textContent = newContent; 
 
-// });
+});
 
 // function to clear contents
 let clear = document.getElementById('clear');
