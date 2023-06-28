@@ -31,7 +31,11 @@ function operate(val1, operator, val2){
        return multiply(val1, val2);
     }
     else if (operator === "/"){
+        if(value2 === 0){
+            return "ZeroDivisionError!";
+        }else{
         return divide(val1,val2);
+        }
     }
     else if (operator === "%"){
        return  percent(val1, val2);
@@ -86,6 +90,9 @@ del.addEventListener('click',function(){
 let clear = document.getElementById('clear');
 clear.addEventListener('click', function(){
     display.textContent = '';
+    value1 = [];
+    value2 = [];
+    operator = " ";
 });
 
 // function to call operate function
