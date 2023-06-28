@@ -3,8 +3,8 @@ let value2 = [];
 let operator = " ";
 
 // basic arithmetic functions
-function add(number(num1), number(num2)){
-    return num1 + num2;
+function add(num1, num2){
+    return parseInt(num1) + parseInt(num2);
 }
 function subtract(num1,num2){
     return num1 - num2;
