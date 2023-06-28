@@ -55,12 +55,23 @@ start.addEventListener('click',function(){
     numbers[i].addEventListener('click', function(){
         if (operator === " "){
             value1 += numbers[i].textContent;
+            console.log(value1);
         }else{
             value2 += numbers[i].textContent;
+            console.log(value2);
         }
         display.textContent += numbers[i].textContent;
     });
  }
+
+//  function to store operator value
+let operators = document.getElementsByClassName('oper');
+for (let i =0; i < operators.length; i++){
+    operators[i].addEventListener('click',function(){
+        operator = operators[i].textContent;
+        display.textContent += operators[i].textContent;
+    })
+}
 // function to delete a single element
 let del = document.getElementById('del');
 del.addEventListener('click',function(){
